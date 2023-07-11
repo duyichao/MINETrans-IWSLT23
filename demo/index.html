@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.88.1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href=""https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/normalize.css">
+
+	<title>IWSLT2023 MineTrans</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+
+<body data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="">
+
+<div class="container" >
+<header role="banner">
+</header>
+<main role="main">
+<article itemscope itemtype="https://schema.org/BlogPosting">
+
+<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
+	<div class="text-center">
+	<h2>The MineTrans System for IWSLT 2023 Speech-to-Speech Translation Task</h2>
+        <!-- <h4></h4> -->
+		[<a href="https://aclanthology.org/2023.iwslt-1.3">Paper</a>]
+		[<a href="https://github.com/duyichao/MINETrans-IWSLT23">Code</a>]
+        <p class="fst-italic mb-0">
+          <br>
+		  Yichao Du, Zhengsheng Guo, Jinchuan Tian, Zhirui Zhang, Xing Wang, Jianwei Yu, Zhaopeng Tu, Tong Xu and Enhong Chen
+      <p></p>
+        </p>
+        <p><b>
+			University of Science and Technology of China & State Key Laboratory of Cognitive Intelligence
+			<br>
+			Tencent AI Lab
+			<!-- <br> 
+			Tencent AI Lab -->
+		</b></p>
+	</div>
+	<p>
+        <!-- <b>Intro.</b>  -->
+		This demo presents the MineTrans English-to-Chinese speech translation systems developed for Speech-to-Speech Translation (S2ST) track of IWSLT 2023. In this track, we explore a speech-to-unit (S2U) framework to build an end-to-end S2ST system. This system encodes the target speech as discrete units via our trained HuBERT. Then it leverages the standard sequence-to-sequence model to directly learn the mapping between source speech and discrete units without any auxiliary recognition tasks (i.e., ASR and MT tasks). Various efforts are made to improve the MineTrans's performance, such as acoustic model pre-training on large-scale data, data filtering, data augmentation, speech segmentation, knowledge distillation, consistency training, model ensembles, etc.
+      </p>     
+	  <p>This page is for <b>research demonstration purposes</b> only.</p>
+
+	<p>
+	<b>Contents</b>
+      <ul>
+        <li><a href="#model-overview">Model Overview</a></li>
+        <li><a href="#s2st-samples">English-to-Chinese Speech-to-Speech Translation</a></li>
+      </ul>
+	</p>   
+
+	
+</div>
+
+
+<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">		
+	<h2 id="model-overview" style="text-align: center;">Model Overview</h2>
+	<body>
+	<p style="text-align: center;">
+		<img src="pics/model.svg" height="347" width="157">
+	</p>
+	</body>
+		<p style="text-align: center;" >
+			<b>Figure.</b> Overview of MineTrans S2ST System. This system encodes the target speech as discrete units via our trained HuBERT. Then it leverages the standard sequence-to-sequence model to directly learn the mapping between source speech and discrete units without any auxiliary recognition tasks (i.e., ASR and MT tasks)
+		</p>
+</div>
+
+<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
+	<h2 id="s2st-samples" style="text-align: center;">English-to-Chinese Speech-to-Speech Translation</h2>
+	<br>
+	<h4 style="text-align: center;">Dev Set 1 (Split from GigaSS Training Set for Select Model)</h4>
+	<br>
+		<div class="table-responsive pt-3">
+			<table class="table table-hover pt-2">
+				<thead>
+				<tr>
+				<th style="text-align: center">English Speech </th>
+				<th style="text-align: center">MineTrans</th>
+				<th style="text-align: center">Chinese Ground Truth</th>
+				</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/POD0000006232_S0000236_src.wav" autoplay/>Your browser does not support the audio element.</audio><p>and that that part is an innovation i think in terms of collecting the information.</p></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/POD0000006232_S0000236_gen.wav" autoplay/>Your browser does not support the audio element.</audio><p>我认为这部分是在收集信息方面的创新。</p></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/POD0000006232_S0000236_gt.wav" autoplay/>Your browser does not support the audio element.</audio><p>我认为这部分是收集信息方面的创新。</p></td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/POD0000014238_S0000052_SRC.wav" autoplay/>Your browser does not support the audio element.</audio><p>it results from the expression of an organism's genes and the influence of environmental factors.</p></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/POD0000014238_S0000052_GEN.wav" autoplay/>Your browser does not support the audio element.</audio><p>它是由生物体基因的表达和环境因素的影响的结果。</p></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/POD0000014238_S0000052_GT.wav" autoplay/>Your browser does not support the audio element.</audio><p>它是生物体基因表达和环境因素影响的结果。</p></td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/YOU0000014289_S0000109_SRC.wav" autoplay/>Your browser does not support the audio element.</audio><p>so we're not going back to that but i think there is something in the middle that makes more sense, that's more sensitive to local culture, local ecology.</p></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/YOU0000014289_S0000109_GEN.wav" autoplay/>Your browser does not support the audio element.</audio><p>所以我们不会回到那个话题，但我认为中间有一些更有意义的东西，对当地文化、当地生态更敏感。</p></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/YOU0000014289_S0000109_GT.wav" autoplay/>Your browser does not support the audio element.</audio><p>所以我们不会回到那个话题，但我认为中间有一些东西更有意义，对当地文化、当地生态更敏感。</p></td>
+						</tr>
+					<tr>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/AUD0000000742_S0000034_SRC.wav" autoplay/>Your browser does not support the audio element.</audio><p>smelling bad smells, seeing dreadful sights, hearing woful tales</p></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/AUD0000000742_S0000034_GEN.wav" autoplay/>Your browser does not support the audio element.</audio><p>闻到难闻的气味，看到可怕的景象，听到悲惨的故事，</p></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/AUD0000000742_S0000034_GT.wav" autoplay/>Your browser does not support the audio element.</audio><p>闻到难闻的气味，看到可怕的景象，听到悲惨的故事，</p></td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/YOU0000010917_S0000022_SRC.wav" autoplay/>Your browser does not support the audio element.</audio><p>it can also be a good thing to use several different cameras because it it can actually make it more engaging.</p></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/YOU0000010917_S0000022_GEN.wav" autoplay/>Your browser does not support the audio element.</audio><p>使用几个不同的相机也是一件好事，因为它实际上可以使其更吸引人。</p></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/YOU0000010917_S0000022_GT.wav" autoplay/>Your browser does not support the audio element.</audio><p>使用几个不同的相机也是一件好事，因为它实际上可以让它更吸引人。</p></td>
+					</tr>
+					
+					<tr>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/YOU0000014911_S0000016_SRC.wav" autoplay/>Your browser does not support the audio element.</audio><p>this is also part of the reason why, in the years after their introduction, you would often see vending machines in these places giving back dollar coins the government just really wanted people to use these coins. it was classic government just shoving their extra special coins down our throats the problem, though, was that the public didn't like them no matter if they were in their throats or not.</p></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/YOU0000014911_S0000016_GEN.wav" autoplay/>Your browser does not support the audio element.</audio><p>这也是为什么在它们推出后的几年里，你经常在这些地方看到自动售货机回馈美元硬币政府只是真的希望人们使用这些硬币。这是典型的政府只是把他们额外的特殊硬币塞进我们的喉咙里问题是，不管它们是否在喉咙里，公众都不喜欢它们。</p></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 190px;"><source src="audios/gigass_dev1/YOU0000014911_S0000016_GT.wav" autoplay/>Your browser does not support the audio element.</audio><p>这也是为什么在它们推出后的几年里，你会经常在这些地方看到自动售货机回馈美元硬币政府只是真的希望人们使用这些硬币。这是典型的政府只是把他们额外的特殊硬币塞进我们的喉咙里问题是，不管它们是否在喉咙里，公众都不喜欢它们。</p></td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+	<br>
+</div>
+
+
+</article>
+</main>
+</div>
+
+</body>
+</html>
