@@ -33,7 +33,7 @@ Zh | [HuBert]()      | Transformer | Base  | GigaSS & AISHELL3  | [layer6.km250]
 ### Unit-based HiFi-GAN vocoder
 Unit config | Unit size | Language | Dataset | Model
 |---|---|---|---|---
-HuBERT Base, layer 6 | 250 | Zh | GigaSS-S & AISHELL3 | [g_500000](https://dl.fbaipublicfiles.com/fairseq/speech_to_speech/vocoder/code_hifigan/)
+HuBERT Base, layer 6 | 250 | Zh | GigaSS-S (200h) | [g_500000]()
 
 
 ### E2E-S2ST Model
