@@ -1,3 +1,6 @@
+<div align="center">
+  <img src="https://raw.githubusercontent.com/duyichao/MINETrans-IWSLT23//main/assets/MineTrans-logo.bmp" alt="Logo" width="200">
+</div>
 # The MineTrans Systems for IWSLT 2023 Offline Speech Translation and Speech-to-Speech Translation Tasks
 
 This project is the official implementation of the MineTrans English-to-Chinese speech transaltion system for the IWSLT2023 speech-to-speech translation (S2ST) track and the offline speech translation (S2T) track.
