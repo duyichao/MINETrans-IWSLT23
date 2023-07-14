@@ -39,23 +39,23 @@ pip install -r requirements.txt
 
 Language | Speech Encoder | Block type | Model size | Dataset  | KM-Model |
 --- | --- | --- | --- | --- | --- |
-En | [Wav2vec 2.0](https://drive.google.com/drive/folders/1ROowmSkoFHsWXOORgJDg3lNmVoi9HD-W) | Conformer   | Large | Voxpopuli & GigaSS | × |
-Zh | [HuBert](https://drive.google.com/drive/folders/1HD8dz9EqdzoUa_rRATJCugROCIjEAl94)      | Transformer | Base  | GigaSS & AISHELL3  | [layer6.km250](https://drive.google.com/drive/folders/1HD8dz9EqdzoUa_rRATJCugROCIjEAl94) |
+En | [Wav2vec 2.0](https://mailustceducn-my.sharepoint.com/:f:/g/personal/duyichao_mail_ustc_edu_cn/EgXqh78JSphGgrK_3eNqCkgBdPzEOZzJD6DC2D_xofiJqQ?e=uzS2UE) | Conformer   | Large | Voxpopuli & GigaSS | × |
+Zh | [HuBert](https://mailustceducn-my.sharepoint.com/:f:/g/personal/duyichao_mail_ustc_edu_cn/Ep-64ggu5s9Pt4oUfsX06nABKGaEJVH3YmDUAB_UUxKs7Q)      | Transformer | Base  | GigaSS & AISHELL3  | [layer6.km250](https://mailustceducn-my.sharepoint.com/:f:/g/personal/duyichao_mail_ustc_edu_cn/Ep-64ggu5s9Pt4oUfsX06nABKGaEJVH3YmDUAB_UUxKs7Q) |
 <!-- En | [Wav2vec 2.0](https://drive.google.com/drive/folders/1ROowmSkoFHsWXOORgJDg3lNmVoi9HD-W) | Transformer | Large | Voxpopuli & GigaSS | × |
 En | [HuBert](https://drive.google.com/drive/folders/1HD8dz9EqdzoUa_rRATJCugROCIjEAl94)      | Transformer | Large | Voxpopuli & GigaSS | × | -->
 
 #### S2UT Model
 Models | ASR-BLEU | ASR-charF | Checkpoint |
 --- | --- | --- | --- | 
-W2V2-CONF-LARGE         | 27.7 | 23.4 | [download](https://drive.google.com/drive/folders/1hpVdVlg2o7SLoDHM0FeuJrXBC4WXhzLy) |
-W2V2-CONF-LARGE+T2U     | 27.8 | 23.7 | [download](https://drive.google.com/drive/folders/1hpVdVlg2o7SLoDHM0FeuJrXBC4WXhzLy) |
-HUBERT-TRANS-LARGE+T2U  | 26.2 | 23.2 | [download](https://drive.google.com/drive/folders/1hpVdVlg2o7SLoDHM0FeuJrXBC4WXhzLy) |
-HUBERT-TRANS-LARGE+T2U* | 25.7 | 22.6 | [download](https://drive.google.com/drive/folders/1hpVdVlg2o7SLoDHM0FeuJrXBC4WXhzLy) |
+W2V2-CONF-LARGE         | 27.7 | 23.4 | [download](https://mailustceducn-my.sharepoint.com/:f:/g/personal/duyichao_mail_ustc_edu_cn/EgZjYbinQqNLp9-qg548ek8BAvxS5gNXIXA2zVpulLQJtQ?e=YPVoC2) |
+W2V2-CONF-LARGE+T2U     | 27.8 | 23.7 | [download](https://mailustceducn-my.sharepoint.com/:f:/g/personal/duyichao_mail_ustc_edu_cn/EgZjYbinQqNLp9-qg548ek8BAvxS5gNXIXA2zVpulLQJtQ?e=YPVoC2) |
+HUBERT-TRANS-LARGE+T2U  | 26.2 | 23.2 | [download](https://mailustceducn-my.sharepoint.com/:f:/g/personal/duyichao_mail_ustc_edu_cn/EgZjYbinQqNLp9-qg548ek8BAvxS5gNXIXA2zVpulLQJtQ?e=YPVoC2) |
+HUBERT-TRANS-LARGE+T2U* | 25.7 | 22.6 | [download](https://mailustceducn-my.sharepoint.com/:f:/g/personal/duyichao_mail_ustc_edu_cn/EgZjYbinQqNLp9-qg548ek8BAvxS5gNXIXA2zVpulLQJtQ?e=YPVoC2) |
 
 #### Unit HiFi-GAN Vocoder
 Unit config | Unit size | Language | Dataset | Model
 |---|---|---|---|---
-HuBERT Base, layer 6 | 250 | Zh | GigaSS-S (200h) | [d_500000](https://drive.google.com/drive/folders/14Cdnn_dKf7sM7KiEeHamccFWMINSHjEg)
+HuBERT Base, layer 6 | 250 | Zh | GigaSS-S (200h) | [d_500000](https://mailustceducn-my.sharepoint.com/:f:/g/personal/duyichao_mail_ustc_edu_cn/EmRYhYd69dBPi8yq-na3WzUBZ5xr6uTz_TFDUX2VfMWv1A)
 
 ### Data Preparation
 <!-- #### Data for HuBert/Wav2vec2 Pretraining
