@@ -18,7 +18,6 @@ Zhang](https://zrustc.github.io/), [Xing Wang](http://www.xingwang4nlp.com/), [J
 
 ## Overview
 - [Setup](#setup)
-- [Pre-trained Models](#pre-trained-models)
 - [Speech-to-Speech Translation](#speech-to-speech-translation)
 - [Offline Speech Translation](#offline-speech-translation)
 
@@ -58,8 +57,8 @@ Unit config | Unit size | Language | Dataset | Model
 |---|---|---|---|---
 HuBERT Base, layer 6 | 250 | Zh | GigaSS-S (200h) | [d_500000](https://drive.google.com/drive/folders/14Cdnn_dKf7sM7KiEeHamccFWMINSHjEg)
 
-<!-- ### Data Preparation
-#### Data for HuBert/Wav2vec2 Pretraining
+### Data Preparation
+<!-- #### Data for HuBert/Wav2vec2 Pretraining
 Please follow the steps of data preparation for HuBERT in [here](https://github.com/facebookresearch/fairseq/tree/main/examples/hubert#data-preparation).
 
 #### Target Unit Extraction
