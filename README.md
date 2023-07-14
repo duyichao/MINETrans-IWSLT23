@@ -11,57 +11,107 @@ This project is the official implementation of the MineTrans English-to-Chinese 
    <!-- • 📹 <a href="" target="_blank">Video</a>  -->
 </p>
 
-**Team:** [Yichao Du](https://github.com/duyichao), ZHengsheng Guo, [Jinchuan Tian](https://scholar.google.com/citations?user=KE5I4R0AAAAJ), [Zhirui
+**Team:** [Yichao Du](https://github.com/duyichao), [Zhengsheng Guo](), [Jinchuan Tian](https://scholar.google.com/citations?user=KE5I4R0AAAAJ), [Zhirui
 Zhang](https://zrustc.github.io/), [Xing Wang](http://www.xingwang4nlp.com/), [Jianwei Yu](https://scholar.google.com/citations?user=fY1IJ4wAAAAJ&hl=en), [Zhaopeng Tu](http://www.zptu.net/), [Tong Xu](http://staff.ustc.edu.cn/~tongxu/), and [Enhong Chen](https://scholar.google.com/citations?user=Q9h02J0AAAAJ&hl)
 
 <hr>
 
 ## Overview
+- [Setup](#setup)
 - [Pre-trained Models](#pre-trained-models)
 - [Speech-to-Speech Translation](#speech-to-speech-translation)
 - [Offline Speech Translation](#offline-speech-translation)
 
 <hr>
 
-## Pre-trained Models
-
-### Speech Encoder & K-means Model
-
-Language | Speech Encoder | Block type | Model size | Dataset  | KM-Model |
---- | --- | --- | --- | --- | --- |
-En | [Wav2vec 2.0]() | Conformer   | Large | Voxpopuli & GigaSS | × |
-En | [Wav2vec 2.0]() | Transformer | Large | Voxpopuli & GigaSS | × |
-En | [HuBert]()      | Transformer | Large | Voxpopuli & GigaSS | × |
-Zh | [HuBert]()      | Transformer | Base  | GigaSS & AISHELL3  | [layer6.km250]() |
-
-### Unit-based HiFi-GAN vocoder
-Unit config | Unit size | Language | Dataset | Model
-|---|---|---|---|---
-HuBERT Base, layer 6 | 250 | Zh | GigaSS-S (200h) | [g_500000]()
-
-
-### E2E-S2ST Model
-Models | ASR-BLEU | ASR-charF | Checkpoint |
---- | --- | --- | --- | 
-W2V2-CONF-LARGE         | 27.7 | 23.4 | [download]() |
-W2V2-CONF-LARGE+T2U     | 27.8 | 23.7 | [download]() |
-HUBERT-TRANS-LARGE+T2U  | 26.2 | 23.2 | [download]() |
-HUBERT-TRANS-LARGE+T2U* | 25.7 | 22.6 | [download]() |
+## Setup
+```bash
+git clone https://github.com/duyichao/MineTrans-IWSLT23.git
+cd MineTrans-IWSLT23
+pip install -e ./fairseq
+pip install -r requirements.txt
+```
 
 
 ## Speech-to-Speech Translation
-Coming soon.
+### Pre-trained Models
+
+#### Speech Encoder & K-means Model
+
+Language | Speech Encoder | Block type | Model size | Dataset  | KM-Model |
+--- | --- | --- | --- | --- | --- |
+En | [Wav2vec 2.0](https://drive.google.com/drive/folders/1ROowmSkoFHsWXOORgJDg3lNmVoi9HD-W) | Conformer   | Large | Voxpopuli & GigaSS | × |
+Zh | [HuBert](https://drive.google.com/drive/folders/1HD8dz9EqdzoUa_rRATJCugROCIjEAl94)      | Transformer | Base  | GigaSS & AISHELL3  | [layer6.km250](https://drive.google.com/drive/folders/1HD8dz9EqdzoUa_rRATJCugROCIjEAl94) |
+<!-- En | [Wav2vec 2.0](https://drive.google.com/drive/folders/1ROowmSkoFHsWXOORgJDg3lNmVoi9HD-W) | Transformer | Large | Voxpopuli & GigaSS | × |
+En | [HuBert](https://drive.google.com/drive/folders/1HD8dz9EqdzoUa_rRATJCugROCIjEAl94)      | Transformer | Large | Voxpopuli & GigaSS | × | -->
+
+#### S2UT Model
+Models | ASR-BLEU | ASR-charF | Checkpoint |
+--- | --- | --- | --- | 
+W2V2-CONF-LARGE         | 27.7 | 23.4 | [download](https://drive.google.com/drive/folders/1hpVdVlg2o7SLoDHM0FeuJrXBC4WXhzLy) |
+W2V2-CONF-LARGE+T2U     | 27.8 | 23.7 | [download](https://drive.google.com/drive/folders/1hpVdVlg2o7SLoDHM0FeuJrXBC4WXhzLy) |
+HUBERT-TRANS-LARGE+T2U  | 26.2 | 23.2 | [download](https://drive.google.com/drive/folders/1hpVdVlg2o7SLoDHM0FeuJrXBC4WXhzLy) |
+HUBERT-TRANS-LARGE+T2U* | 25.7 | 22.6 | [download](https://drive.google.com/drive/folders/1hpVdVlg2o7SLoDHM0FeuJrXBC4WXhzLy) |
+
+#### Unit HiFi-GAN Vocoder
+Unit config | Unit size | Language | Dataset | Model
+|---|---|---|---|---
+HuBERT Base, layer 6 | 250 | Zh | GigaSS-S (200h) | [d_500000](https://drive.google.com/drive/folders/14Cdnn_dKf7sM7KiEeHamccFWMINSHjEg)
 
 <!-- ### Data Preparation
+#### Data for HuBert/Wav2vec2 Pretraining
+Please follow the steps of data preparation for HuBERT in [here](https://github.com/facebookresearch/fairseq/tree/main/examples/hubert#data-preparation).
 
 #### Target Unit Extraction
-To prepare data for S2UT training, follow the steps from Direct S2ST with Discrete Units and format the data in the S2UT format. Note that we use 250 units from the sixth layer (--layer 6) of the hubert model linked above instead.
+To prepare data for S2UT training, follow the steps from Direct S2ST with Discrete Units and format the data in the S2UT format. Note that we use 250 units from the sixth layer (--layer 6) of the hubert model linked above instead. -->
 
-### Inference
+#### Formatting Data
+Dataset should be prepared into the following format.
+```
+id	audio	n_frames	tgt_text	tgt_n_frames
+YOU0000010267_S0001707	/path/to/YOU0000010267_S0001707.wav	49600	44 127 27 66 46	100
+YOU0000016336_S0001298	/path/to/YOU0000016336_S0001298.wav	83200	44 239 222 46	202
 ```
 
-``` -->
+### Inference
+1. Follow the same inference process as in [fairseq-S2T](https://github.com/pytorch/fairseq/tree/main/examples/speech_to_text) to generate units (`${RESULTS_PATH}/generate-${GEN_SUBSET}.txt`).
+``` bash
+CFG=config_u250_s2ut_audio.yaml
+CKPT_S2UT=/path/to/checkpoint
+RESULTS_PATH=/path/to/results
+EVAL_DATA_PATH=/path/to/eval_data
+GEN_SUBSET=/path/to/test_data
 
+
+mkdir ${RESULTS_PATH} -p
+CUDA_VISIBLE_DEVICES=1 \
+  fairseq-generate ${EVAL_DATA_PATH} \
+  --config-yaml ${CFG} \
+  --task speech_to_text \
+  --path ${CKPT_S2UT} --gen-subset ${GEN_SUBSET} \
+  --max-tokens 2000000 --max-source-positions 2000000 --max-target-positions 10000 \
+  --beam 10 --max-len-a 1 --max-len-b 200 --lenpen 1 \
+  --scoring sacrebleu \
+  --required-batch-size-multiple 1 \
+  --results-path ${RESULTS_PATH}
+```
+2. Convert unit sequences to waveform through unit-based HiFi-GAN vocoder.
+``` bash
+VOCODER_CFG=/path/to/vocoder_cfg
+VOCODER_CKPT=/path/to/vocoder_ckpt
+  grep "^D\-" ${RESULTS_PATH}/generate-${GEN_SUBSET}.txt |
+    sed 's/^D-//ig' | sort -nk1 | cut -f3 \
+      >${RESULTS_PATH}/generate-${GEN_SUBSET}.hyp.unit
+  grep "^T\-" ${RESULTS_PATH}/generate-${GEN_SUBSET}.txt |
+    sed 's/^D-//ig' | sort -nk1 | cut -f2 \
+      >${RESULTS_PATH}/generate-${GEN_SUBSET}.ref.unit
+
+  mkdir ${RESULTS_PATH}/audio_gen -p
+  python3 ./minetrans/scripts/generate_waveform_from_code.py \
+    --in-code-file ${RESULTS_PATH}/generate-${GEN_SUBSET}.hyp.unit \
+    --vocoder ${VOCODER_CKPT} --vocoder-cfg ${VOCODER_CFG} \
+    --results-path ${RESULTS_PATH}/audio_gen --dur-prediction
+```
 <hr>
 
 ## Offline Speech Translation
